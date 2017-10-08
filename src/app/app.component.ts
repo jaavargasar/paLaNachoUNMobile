@@ -8,27 +8,42 @@ import {SignUpPage} from '../pages/sign-up/sign-up'
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 
+import {TestServiceProvider} from '../providers/test-service/test-service';
+
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  //rootPage: any = HomePage;
+  rootPage: any = HomePage;
+  //rootPage: any = SignUpPage;
 
-  rootPage: any = SignUpPage;
+
   pages: Array<{title: string, component: any}>;
+  invitedPage: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform,
+              public statusBar: StatusBar,
+              public splashScreen: SplashScreen,
+              public auth: TestServiceProvider) {
     this.initializeApp();
+
+
 
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage },
-      { title: 'Crear cuenta' , component: SignUpPage }
     ];
 
+    this.invitedPage = [
+      { title: 'Sign In' , component: SignUpPage }
+    ];
+
+  }
+
+  logOut(){
+    this.auth.logOut();
   }
 
   initializeApp() {
