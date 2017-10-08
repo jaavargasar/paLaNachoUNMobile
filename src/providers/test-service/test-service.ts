@@ -5,6 +5,8 @@ import * as firebase from 'firebase/app';
 
 import {AngularFireAuth} from 'angularfire2/auth';
 
+import { Storage } from '@ionic/storage';
+
 /*
   Generated class for the TestServiceProvider provider.
 
@@ -18,18 +20,20 @@ export class TestServiceProvider {
 
   public token: string;
 
-  constructor(private angularAuth: AngularFireAuth){
+  constructor(private angularAuth: AngularFireAuth,
+              private storage: Storage){
     this.setUp();
   }
 
   setUp(){
 
 
-    this.token = this.getTokenFromLS();
+    //this.token = this.getTokenFromLS();
+    this.getTokenFromLS();
     console.log(this.token);
     this.angularAuth.authState.subscribe( (firebaseUser)=>{
       if(firebaseUser){
-        localStorage.setItem(identifier,firebaseUser.uid);
+        this.storage.set(identifier,firebaseUser.uid);
         this.token =firebaseUser.uid;
       }
       else{
@@ -39,9 +43,12 @@ export class TestServiceProvider {
     })
   }
 
-  getTokenFromLS(): string{
-    return localStorage.getItem(identifier);
+  getTokenFromLS(){
+    return this.storage.get(identifier).then((val) => {
+      this.token = val; //se deberia modificar
+    });
   }
+
 
   logOut(){
     return this.angularAuth.auth.signOut().then( ()=>{
