@@ -20,8 +20,10 @@
 
 <ion-content padding>
 
-  <div padding [@flyInBottomFast]="cloudState" id="cloud-layer">
+
   <div *ngIf="redirectTo()"> </div>
+  <div padding [@flyInBottomFast]="cloudState" id="cloud-layer">
+  <!-- <div *ngIf="redirectTo()"> </div> -->
   <ion-row>
     <ion-col>
       <img [@flyInBottomSlow]="logoState" src="assets/images/joshuamorony.png" />
