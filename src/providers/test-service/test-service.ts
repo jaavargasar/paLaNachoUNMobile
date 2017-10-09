@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable,Injector } from '@angular/core';
 //import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import * as firebase from 'firebase/app';
@@ -6,6 +6,8 @@ import * as firebase from 'firebase/app';
 import {AngularFireAuth} from 'angularfire2/auth';
 
 import { Storage } from '@ionic/storage';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+
 
 /*
   Generated class for the TestServiceProvider provider.
@@ -21,7 +23,8 @@ export class TestServiceProvider {
   public token: string;
 
   constructor(private angularAuth: AngularFireAuth,
-              private storage: Storage){
+              private storage: Storage,
+              protected injector: Injector, ){
     this.setUp();
   }
 
@@ -56,13 +59,19 @@ export class TestServiceProvider {
     })
   }
 
+  get MynavCtrl(): NavController {
+    return this.injector.get(NavController);
+  }
+
   loginWithGoogle(){
     var provider= new firebase.auth.GoogleAuthProvider();
     //signInWithRedirect
     //signInWithPopup
+
     return this.angularAuth.auth.signInWithRedirect(provider)
         .then(result =>{
           return firebase.auth().getRedirectResult;
         });
+
   }
 }

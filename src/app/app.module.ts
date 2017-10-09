@@ -21,6 +21,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { IonicStorageModule } from '@ionic/storage';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { IonicStorageModule } from '@ionic/storage';
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    BrowserAnimationsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

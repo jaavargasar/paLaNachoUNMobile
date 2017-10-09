@@ -16,8 +16,8 @@ import {TestServiceProvider} from '../providers/test-service/test-service';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
-  //rootPage: any = SignUpPage;
+  //rootPage: any = HomePage;
+  rootPage: any = SignUpPage;
 
 
   pages: Array<{title: string, component: any}>;
