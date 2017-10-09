@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+//import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import * as firebase from 'firebase/app';
 
@@ -57,7 +57,7 @@ export class TestServiceProvider {
   }
 
   loginWithGoogle(){
-    let provider= new firebase.auth.GoogleAuthProvider();
+    var provider= new firebase.auth.GoogleAuthProvider();
     //signInWithRedirect
     //signInWithPopup
     return this.angularAuth.auth.signInWithRedirect(provider)

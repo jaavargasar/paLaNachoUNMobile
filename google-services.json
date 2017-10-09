@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "68264418839",
+    "firebase_url": "https://palanacho-3d92f.firebaseio.com",
+    "project_id": "palanacho-3d92f",
+    "storage_bucket": "palanacho-3d92f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:68264418839:android:27bbe68bfb4590a7",
+        "android_client_info": {
+          "package_name": "com.paLaNacho.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "68264418839-95c5etabg652kpbmh9ecbfg2cpknv9gm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_8RG2RxMaG89ve8lLzGgh27pDU9HmoSc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
