@@ -8,6 +8,7 @@ import {AngularFireAuth} from 'angularfire2/auth';
 import { Storage } from '@ionic/storage';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import {HomePage} from '../../pages/home/home'
 
 /*
   Generated class for the TestServiceProvider provider.
@@ -28,6 +29,7 @@ export class TestServiceProvider {
     this.setUp();
   }
 
+
   setUp(){
 
 
@@ -40,7 +42,8 @@ export class TestServiceProvider {
         this.token =firebaseUser.uid;
       }
       else{
-        localStorage.removeItem(identifier);
+        this.storage.remove(identifier);
+        //localStorage.removeItem(identifier);
         this.token =null;
       }
     })

@@ -93,4 +93,8 @@ export class SignUpPage {
     this.auth.loginWithGoogle();
   }
 
+  redirectTo(){
+    if(this.auth.token) this.MynavCtrl.setRoot(HomePage);
+  }
+
 }

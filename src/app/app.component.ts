@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, App } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 //import { ListPage } from '../pages/list/list';
 
 import {TestServiceProvider} from '../providers/test-service/test-service';
+import { NavController } from 'ionic-angular';
 
 @Component({
   templateUrl: 'app.html'
@@ -26,7 +27,8 @@ export class MyApp {
   constructor(public platform: Platform,
               public statusBar: StatusBar,
               public splashScreen: SplashScreen,
-              public auth: TestServiceProvider) {
+              public auth: TestServiceProvider,
+              protected app: App) {
     this.initializeApp();
 
 
@@ -42,8 +44,13 @@ export class MyApp {
 
   }
 
+  get navCtrl(): NavController {
+     return this.app.getRootNav();
+  }
+
   logOut(){
     this.auth.logOut();
+    this.navCtrl.setRoot(SignUpPage );
   }
 
   initializeApp() {
